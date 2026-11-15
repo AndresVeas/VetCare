@@ -1,12 +1,15 @@
 @startuml
-title Mapa Navegacional VetCare (FSM Jerarquica)
+title Mapa Navegacional VetCare (FSM)
 
 hide empty description
 top to bottom direction
-skinparam linetype polyline
-skinparam nodesep 35
-skinparam ranksep 50
-skinparam padding 6
+
+skinparam nodesep 75
+skinparam ranksep 95
+skinparam padding 12
+skinparam ArrowThickness 1.2
+skinparam StateBackgroundColor #FFFDF5
+skinparam StateBorderColor #8B2635
 
 state "index" as index
 
@@ -35,9 +38,13 @@ state "Administrador" as mod_admin {
     state "servicios-eliminar" as servicios_eliminar
   }
 
+  veterinarios_listado -[hidden]right-> servicios_listado
+
   admin_dashboard --> admin_dashboard
+  admin_dashboard --> veterinarios_listado
   admin_dashboard --> veterinarios_nuevo
   admin_dashboard --> veterinarios_editar
+  admin_dashboard --> servicios_listado
   admin_dashboard --> servicios_nuevo
   admin_dashboard --> servicios_editar
 
@@ -56,13 +63,12 @@ state "Administrador" as mod_admin {
   servicios_nuevo --> servicios_listado
   servicios_editar --> servicios_listado
   servicios_eliminar --> servicios_listado
+
+  veterinarios_listado --> servicios_listado
+  servicios_listado --> veterinarios_listado
 }
 
-' Navegacion global del navbar (Administrador)
 mod_admin --> index
-mod_admin --> admin_dashboard
-mod_admin --> veterinarios_listado
-mod_admin --> servicios_listado
 
 ' =========================================================
 ' ROL: VETERINARIO
@@ -74,25 +80,36 @@ state "Veterinario" as mod_vet {
   state "historial-buscar" as historial_buscar
   state "historial-detalle" as historial_detalle
 
+  agenda_dia -[hidden]right-> atencion_registrar
+  atencion_registrar -[hidden]right-> historial_buscar
+
   veterinario_dashboard --> veterinario_dashboard
+  veterinario_dashboard --> agenda_dia
+  veterinario_dashboard --> atencion_registrar
+  veterinario_dashboard --> historial_buscar
   veterinario_dashboard --> historial_detalle
 
   agenda_dia --> agenda_dia
+  agenda_dia --> atencion_registrar
+  agenda_dia --> historial_buscar
   agenda_dia --> historial_detalle
 
   atencion_registrar --> atencion_registrar
+  atencion_registrar --> agenda_dia
+  atencion_registrar --> historial_buscar
   atencion_registrar --> historial_detalle
 
   historial_buscar --> historial_buscar
+  historial_buscar --> agenda_dia
+  historial_buscar --> atencion_registrar
   historial_buscar --> historial_detalle
+
+  historial_detalle --> agenda_dia
+  historial_detalle --> atencion_registrar
+  historial_detalle --> historial_buscar
 }
 
-' Navegacion global del navbar (Veterinario)
 mod_vet --> index
-mod_vet --> veterinario_dashboard
-mod_vet --> agenda_dia
-mod_vet --> atencion_registrar
-mod_vet --> historial_buscar
 
 ' =========================================================
 ' ROL: RECEPCIONISTA
@@ -121,9 +138,16 @@ state "Recepcionista" as mod_recepcion {
     state "citas-cancelar" as citas_cancelar
   }
 
+  propietarios_listado -[hidden]right-> mascotas_listado
+  mascotas_listado -[hidden]right-> citas_agendar
+
   recepcionista_dashboard --> recepcionista_dashboard
+  recepcionista_dashboard --> propietarios_listado
   recepcionista_dashboard --> propietarios_nuevo
+  recepcionista_dashboard --> mascotas_listado
   recepcionista_dashboard --> mascotas_nuevo
+  recepcionista_dashboard --> citas_agendar
+  recepcionista_dashboard --> citas_listado
   recepcionista_dashboard --> citas_reprogramar
   recepcionista_dashboard --> citas_cancelar
 
@@ -146,12 +170,13 @@ state "Recepcionista" as mod_recepcion {
   citas_agendar --> citas_agendar
   citas_agendar --> citas_listado
   citas_listado --> citas_listado
+  citas_listado --> citas_agendar
   citas_listado --> citas_reprogramar
   citas_listado --> citas_cancelar
   citas_reprogramar --> citas_listado
   citas_cancelar --> citas_listado
 
-  ' Accesos cruzados entre submodulos (sin pasar por navbar)
+  ' Accesos cruzados entre submodulos
   propietarios_editar --> mascotas_nuevo
   propietarios_editar --> mascotas_editar
   mascotas_nuevo --> propietarios_nuevo
@@ -159,12 +184,6 @@ state "Recepcionista" as mod_recepcion {
   citas_agendar --> mascotas_nuevo
 }
 
-' Navegacion global del navbar (Recepcionista)
 mod_recepcion --> index
-mod_recepcion --> recepcionista_dashboard
-mod_recepcion --> propietarios_listado
-mod_recepcion --> mascotas_listado
-mod_recepcion --> citas_agendar
-mod_recepcion --> citas_listado
 
 @enduml
