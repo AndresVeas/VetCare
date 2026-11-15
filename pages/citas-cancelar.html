@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VetCare - Cancelar cita médica en la Clínica Veterinaria Huellitas.">
+  <title>Cancelar cita | VetCare - Clínica Huellitas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <div class="app-layout">
+    <!-- Navbar unificado: Recepcionista -->
+    <header class="app-navbar">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+      <div class="navbar-top">
+        <a href="recepcionista-dashboard.html" class="navbar-brand">
+          <span class="brand-mark" aria-hidden="true">VC</span>
+          <span>VetCare</span>
+          <span class="navbar-role">Recepción</span>
+        </a>
+        <label for="nav-toggle" class="nav-toggle-btn">
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+          <span>Menú</span>
+        </label>
+      </div>
+      <nav class="navbar-menu" aria-label="Navegación principal">
+        <span class="nav-section-title">Recepción</span>
+        <ul class="nav-list">
+          <li><a href="recepcionista-dashboard.html" class="nav-link">Panel principal</a></li>
+          <li><a href="propietarios-listado.html" class="nav-link">Propietarios</a></li>
+          <li><a href="mascotas-listado.html" class="nav-link">Mascotas</a></li>
+          <li><a href="citas-agendar.html" class="nav-link">Agendar cita</a></li>
+          <li><a href="citas-listado.html" class="nav-link active" aria-current="page">Citas</a></li>
+        </ul>
+      </nav>
+      <div class="navbar-user">
+        <div>
+          <span class="navbar-user-name">Ana Torres</span>
+          <span class="navbar-user-role">Recepcionista</span>
+        </div>
+        <a href="../index.html" class="navbar-logout">Cerrar sesión</a>
+      </div>
+    </header>
+
+    <main class="app-main" id="main-content">
+      <header class="page-header">
+        <div class="d-flex flex-column gap-1">
+          <nav aria-label="Migas de pan">
+            <ol class="breadcrumbs">
+              <li class="breadcrumb-item"><a href="recepcionista-dashboard.html">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="citas-listado.html">Citas</a></li>
+              <li class="breadcrumb-item" aria-current="page">Cancelar cita</li>
+            </ol>
+          </nav>
+          <h1 class="page-title">Cancelar cita</h1>
+          <p class="page-subtitle">Registre el motivo para anular la cita CIT-2026-089.</p>
+        </div>
+        <div class="page-actions">
+          <a href="citas-listado.html" class="btn btn-outline">Volver al listado</a>
+        </div>
+      </header>
+
+      <div class="page-content grid-12">
+        <div class="alert alert-warning col-12" role="alert">
+          <strong>Atención:</strong> Esta acción liberará el horario asignado en la agenda médica y requiere indicar un motivo de cancelación.
+        </div>
+
+        <section class="col-lg-5" aria-labelledby="datos-cita-title">
+          <div class="card">
+            <div class="card-header">
+              <h2 id="datos-cita-title" class="card-title">Datos de la cita</h2>
+              <span class="badge badge-programada">Programada</span>
+            </div>
+            <div class="card-body">
+              <ul class="data-list">
+                <li class="data-item">
+                  <span class="data-label">Código</span>
+                  <span class="data-value">CIT-2026-089</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Fecha y hora</span>
+                  <span class="data-value">15/11/2026 &middot; 10:00</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Paciente</span>
+                  <span class="data-value">Toby (Perro, Golden Retriever)</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Propietario</span>
+                  <span class="data-value">Carlos Mendoza</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Veterinario</span>
+                  <span class="data-value">Dr. Esteban Morales</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Servicio</span>
+                  <span class="data-value">Consulta general ($15.00)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="col-lg-7" aria-labelledby="form-cancelar-title">
+          <form action="citas-listado.html" method="get" class="card">
+            <div class="card-header">
+              <h2 id="form-cancelar-title" class="card-title">Motivo de cancelación</h2>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="motivo_cancelacion" class="form-label required">Motivo</label>
+                <textarea id="motivo_cancelacion" name="motivo_cancelacion" class="form-control" required minlength="5" maxlength="200" placeholder="Describa el motivo de la cancelación..."></textarea>
+                <span class="form-hint">Entre 5 y 200 caracteres.</span>
+              </div>
+
+              <div class="form-check mb-4">
+                <input type="checkbox" id="confirmar_cancelacion" name="confirmar_cancelacion" class="form-check-input" required>
+                <label for="confirmar_cancelacion" class="form-check-label">Confirmo que deseo cancelar esta cita.</label>
+              </div>
+
+              <div class="btn-group">
+                <button type="submit" class="btn btn-danger">Confirmar cancelación</button>
+                <a href="citas-listado.html" class="btn btn-outline">Volver</a>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <footer class="page-footer">
+        <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

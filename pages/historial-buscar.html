@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VetCare - Buscar historial clínico de pacientes en la Clínica Veterinaria Huellitas.">
+  <title>Historial clínico | VetCare - Clínica Huellitas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <div class="app-layout">
+    <!-- Navbar unificado: Médico veterinario -->
+    <header class="app-navbar">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+      <div class="navbar-top">
+        <a href="veterinario-dashboard.html" class="navbar-brand">
+          <span class="brand-mark" aria-hidden="true">VC</span>
+          <span>VetCare</span>
+          <span class="navbar-role">Veterinario</span>
+        </a>
+        <label for="nav-toggle" class="nav-toggle-btn">
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+          <span>Menú</span>
+        </label>
+      </div>
+      <nav class="navbar-menu" aria-label="Navegación principal">
+        <span class="nav-section-title">Área clínica</span>
+        <ul class="nav-list">
+          <li><a href="veterinario-dashboard.html" class="nav-link">Panel principal</a></li>
+          <li><a href="agenda-dia.html" class="nav-link">Agenda del día</a></li>
+          <li><a href="atencion-registrar.html" class="nav-link">Registrar atención</a></li>
+          <li><a href="historial-buscar.html" class="nav-link active" aria-current="page">Historial clínico</a></li>
+        </ul>
+      </nav>
+      <div class="navbar-user">
+        <div>
+          <span class="navbar-user-name">Dr. Esteban Morales</span>
+          <span class="navbar-user-role">Médico veterinario</span>
+        </div>
+        <a href="../index.html" class="navbar-logout">Cerrar sesión</a>
+      </div>
+    </header>
+
+    <main class="app-main" id="main-content">
+      <header class="page-header">
+        <div class="d-flex flex-column gap-1">
+          <nav aria-label="Migas de pan">
+            <ol class="breadcrumbs">
+              <li class="breadcrumb-item"><a href="veterinario-dashboard.html">Inicio</a></li>
+              <li class="breadcrumb-item" aria-current="page">Historial clínico</li>
+            </ol>
+          </nav>
+          <h1 class="page-title">Historial clínico</h1>
+          <p class="page-subtitle">Busque expedientes por nombre de mascota o cédula del propietario.</p>
+        </div>
+      </header>
+
+      <div class="page-content grid-12">
+        <section class="col-12" aria-labelledby="busqueda-title">
+          <form action="historial-buscar.html" method="get" class="card" role="search">
+            <div class="card-header">
+              <h2 id="busqueda-title" class="card-title">Buscar expediente</h2>
+            </div>
+            <div class="card-body grid-12">
+              <div class="form-group col-md-6 col-lg-5 mb-0">
+                <label for="busqueda" class="form-label">Mascota o cédula del propietario</label>
+                <input type="search" id="busqueda" name="q" class="form-control" maxlength="50" placeholder="Ej.: Toby o 1712345678">
+              </div>
+              <div class="form-group col-md-6 col-lg-4 mb-0">
+                <label for="especie" class="form-label">Especie</label>
+                <select id="especie" name="especie" class="form-select">
+                  <option value="" selected>Todas</option>
+                  <option value="Perro">Perro</option>
+                  <option value="Gato">Gato</option>
+                  <option value="Otro">Otras especies</option>
+                </select>
+              </div>
+              <div class="col-md-12 col-lg-3 d-flex items-end">
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-primary">Buscar</button>
+                  <a href="historial-buscar.html" class="btn btn-outline">Limpiar</a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <section class="col-12" aria-labelledby="resultados-title">
+          <div class="card">
+            <div class="card-header">
+              <h2 id="resultados-title" class="card-title">Expedientes clínicos</h2>
+              <span class="fs-sm text-muted">4 registros</span>
+            </div>
+            <div class="table-wrapper">
+              <table class="table">
+                <caption class="visually-hidden">Expedientes clínicos de pacientes</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Paciente</th>
+                    <th scope="col">Especie y raza</th>
+                    <th scope="col">Propietario</th>
+                    <th scope="col">Cédula</th>
+                    <th scope="col">Última atención</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" data-label="Paciente">Toby</th>
+                    <td data-label="Especie y raza">Perro &middot; Golden Retriever</td>
+                    <td data-label="Propietario">Carlos Mendoza</td>
+                    <td data-label="Cédula">1712345678</td>
+                    <td data-label="Última atención">14/10/2026 (Vacunación)</td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="historial-detalle.html" class="btn btn-outline btn-sm">Ver historial</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Paciente">Luna</th>
+                    <td data-label="Especie y raza">Gato &middot; Siamés</td>
+                    <td data-label="Propietario">María López</td>
+                    <td data-label="Cédula">1723456789</td>
+                    <td data-label="Última atención">02/09/2026 (Control general)</td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="historial-detalle.html" class="btn btn-outline btn-sm">Ver historial</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Paciente">Rocky</th>
+                    <td data-label="Especie y raza">Perro &middot; Pastor Alemán</td>
+                    <td data-label="Propietario">Juan Pérez</td>
+                    <td data-label="Cédula">1711223344</td>
+                    <td data-label="Última atención">15/11/2026 (Desparasitación)</td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="historial-detalle.html" class="btn btn-outline btn-sm">Ver historial</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Paciente">Max</th>
+                    <td data-label="Especie y raza">Perro &middot; Schnauzer</td>
+                    <td data-label="Propietario">Sofía Ramos</td>
+                    <td data-label="Cédula">1719988776</td>
+                    <td data-label="Última atención">28/08/2026 (Vacunación)</td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="historial-detalle.html" class="btn btn-outline btn-sm">Ver historial</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="page-footer">
+        <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

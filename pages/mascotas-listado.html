@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VetCare - Gestión de mascotas registradas en la Clínica Veterinaria Huellitas.">
+  <title>Mascotas | VetCare - Clínica Huellitas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <div class="app-layout">
+    <!-- Navbar unificado: Recepcionista -->
+    <header class="app-navbar">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+      <div class="navbar-top">
+        <a href="recepcionista-dashboard.html" class="navbar-brand">
+          <span class="brand-mark" aria-hidden="true">VC</span>
+          <span>VetCare</span>
+          <span class="navbar-role">Recepción</span>
+        </a>
+        <label for="nav-toggle" class="nav-toggle-btn">
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+          <span>Menú</span>
+        </label>
+      </div>
+      <nav class="navbar-menu" aria-label="Navegación principal">
+        <span class="nav-section-title">Recepción</span>
+        <ul class="nav-list">
+          <li><a href="recepcionista-dashboard.html" class="nav-link">Panel principal</a></li>
+          <li><a href="propietarios-listado.html" class="nav-link">Propietarios</a></li>
+          <li><a href="mascotas-listado.html" class="nav-link active" aria-current="page">Mascotas</a></li>
+          <li><a href="citas-agendar.html" class="nav-link">Agendar cita</a></li>
+          <li><a href="citas-listado.html" class="nav-link">Citas</a></li>
+        </ul>
+      </nav>
+      <div class="navbar-user">
+        <div>
+          <span class="navbar-user-name">Ana Torres</span>
+          <span class="navbar-user-role">Recepcionista</span>
+        </div>
+        <a href="../index.html" class="navbar-logout">Cerrar sesión</a>
+      </div>
+    </header>
+
+    <main class="app-main" id="main-content">
+      <header class="page-header">
+        <div class="d-flex flex-column gap-1">
+          <nav aria-label="Migas de pan">
+            <ol class="breadcrumbs">
+              <li class="breadcrumb-item"><a href="recepcionista-dashboard.html">Inicio</a></li>
+              <li class="breadcrumb-item" aria-current="page">Mascotas</li>
+            </ol>
+          </nav>
+          <h1 class="page-title">Mascotas</h1>
+          <p class="page-subtitle">Consulte, registre o actualice las fichas de los pacientes.</p>
+        </div>
+        <div class="page-actions">
+          <a href="mascotas-nuevo.html" class="btn btn-primary">Nueva mascota</a>
+        </div>
+      </header>
+
+      <div class="page-content grid-12">
+        <article class="metric-card col-md-4">
+          <span class="metric-label">Total mascotas</span>
+          <span class="metric-value">142</span>
+          <p class="metric-description">Pacientes con ficha activa</p>
+        </article>
+        <article class="metric-card metric-card-success col-md-4">
+          <span class="metric-label">Caninos</span>
+          <span class="metric-value">86</span>
+          <p class="metric-description">Perros registrados</p>
+        </article>
+        <article class="metric-card metric-card-secondary col-md-4">
+          <span class="metric-label">Felinos y otros</span>
+          <span class="metric-value">56</span>
+          <p class="metric-description">Gatos, aves y roedores</p>
+        </article>
+
+        <section class="col-12" aria-labelledby="filtros-mascotas-title">
+          <form action="mascotas-listado.html" method="get" class="card" role="search">
+            <div class="card-header">
+              <h2 id="filtros-mascotas-title" class="card-title">Buscar mascotas</h2>
+            </div>
+            <div class="card-body grid-12">
+              <div class="form-group col-md-6 col-lg-5 mb-0">
+                <label for="buscar-mascota" class="form-label">Nombre o propietario</label>
+                <input type="search" id="buscar-mascota" name="q" class="form-control" maxlength="100" placeholder="Ej.: Toby">
+              </div>
+              <div class="form-group col-md-6 col-lg-4 mb-0">
+                <label for="filtro-especie" class="form-label">Especie</label>
+                <select id="filtro-especie" name="especie" class="form-select">
+                  <option value="" selected>Todas</option>
+                  <option value="Perro">Perro</option>
+                  <option value="Gato">Gato</option>
+                  <option value="Ave">Ave</option>
+                  <option value="Roedor">Roedor</option>
+                  <option value="Otro">Otro</option>
+                </select>
+              </div>
+              <div class="col-md-12 col-lg-3 d-flex items-end">
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-primary">Buscar</button>
+                  <a href="mascotas-listado.html" class="btn btn-outline">Limpiar</a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <section class="col-12" aria-labelledby="tabla-mascotas-title">
+          <div class="card">
+            <div class="card-header">
+              <h2 id="tabla-mascotas-title" class="card-title">Listado de mascotas</h2>
+              <span class="fs-sm text-muted">6 registros</span>
+            </div>
+            <div class="table-wrapper">
+              <table class="table">
+                <caption class="visually-hidden">Mascotas registradas en la clínica</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Mascota</th>
+                    <th scope="col">Especie</th>
+                    <th scope="col">Raza</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">Nacimiento</th>
+                    <th scope="col">Peso</th>
+                    <th scope="col">Propietario</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" data-label="Mascota">Toby</th>
+                    <td data-label="Especie">Perro</td>
+                    <td data-label="Raza">Golden Retriever</td>
+                    <td data-label="Sexo">Macho</td>
+                    <td data-label="Nacimiento">10/04/2021</td>
+                    <td data-label="Peso">28.5 kg</td>
+                    <td data-label="Propietario">Carlos Mendoza</td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="mascotas-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                        <a href="mascotas-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Mascota">Luna</th>
+                    <td data-label="Especie">Gato</td>
+                    <td data-label="Raza">Siamés</td>
+                    <td data-label="Sexo">Hembra</td>
+                    <td data-label="Nacimiento">15/08/2022</td>
+                    <td data-label="Peso">4.2 kg</td>
+                    <td data-label="Propietario">María López</td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="mascotas-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                        <a href="mascotas-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Mascota">Rocky</th>
+                    <td data-label="Especie">Perro</td>
+                    <td data-label="Raza">Pastor Alemán</td>
+                    <td data-label="Sexo">Macho</td>
+                    <td data-label="Nacimiento">03/11/2020</td>
+                    <td data-label="Peso">31.0 kg</td>
+                    <td data-label="Propietario">Juan Pérez</td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="mascotas-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                        <a href="mascotas-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Mascota">Misi</th>
+                    <td data-label="Especie">Gato</td>
+                    <td data-label="Raza">Angora</td>
+                    <td data-label="Sexo">Hembra</td>
+                    <td data-label="Nacimiento">20/01/2023</td>
+                    <td data-label="Peso">3.8 kg</td>
+                    <td data-label="Propietario">Elena Gómez</td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="mascotas-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                        <a href="mascotas-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Mascota">Max</th>
+                    <td data-label="Especie">Perro</td>
+                    <td data-label="Raza">Schnauzer</td>
+                    <td data-label="Sexo">Macho</td>
+                    <td data-label="Nacimiento">12/06/2019</td>
+                    <td data-label="Peso">8.4 kg</td>
+                    <td data-label="Propietario">Sofía Ramos</td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="mascotas-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                        <a href="mascotas-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Mascota">Thor</th>
+                    <td data-label="Especie">Perro</td>
+                    <td data-label="Raza">Labrador</td>
+                    <td data-label="Sexo">Macho</td>
+                    <td data-label="Nacimiento">05/03/2022</td>
+                    <td data-label="Peso">29.0 kg</td>
+                    <td data-label="Propietario">Diego Castro</td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="mascotas-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                        <a href="mascotas-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="page-footer">
+        <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

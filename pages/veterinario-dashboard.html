@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VetCare - Panel principal del médico veterinario en la Clínica Veterinaria Huellitas.">
+  <title>Panel principal | VetCare - Clínica Huellitas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <div class="app-layout">
+    <!-- Navbar unificado: Médico veterinario -->
+    <header class="app-navbar">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+      <div class="navbar-top">
+        <a href="veterinario-dashboard.html" class="navbar-brand">
+          <span class="brand-mark" aria-hidden="true">VC</span>
+          <span>VetCare</span>
+          <span class="navbar-role">Veterinario</span>
+        </a>
+        <label for="nav-toggle" class="nav-toggle-btn">
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+          <span>Menú</span>
+        </label>
+      </div>
+      <nav class="navbar-menu" aria-label="Navegación principal">
+        <span class="nav-section-title">Área clínica</span>
+        <ul class="nav-list">
+          <li><a href="veterinario-dashboard.html" class="nav-link active" aria-current="page">Panel principal</a></li>
+          <li><a href="agenda-dia.html" class="nav-link">Agenda del día</a></li>
+          <li><a href="atencion-registrar.html" class="nav-link">Registrar atención</a></li>
+          <li><a href="historial-buscar.html" class="nav-link">Historial clínico</a></li>
+        </ul>
+      </nav>
+      <div class="navbar-user">
+        <div>
+          <span class="navbar-user-name">Dr. Esteban Morales</span>
+          <span class="navbar-user-role">Médico veterinario</span>
+        </div>
+        <a href="../index.html" class="navbar-logout">Cerrar sesión</a>
+      </div>
+    </header>
+
+    <main class="app-main" id="main-content">
+      <header class="page-header">
+        <div class="d-flex flex-column gap-1">
+          <nav aria-label="Migas de pan">
+            <ol class="breadcrumbs">
+              <li class="breadcrumb-item" aria-current="page">Panel principal</li>
+            </ol>
+          </nav>
+          <h1 class="page-title">Panel principal</h1>
+          <p class="page-subtitle">Resumen de su agenda médica y accesos rápidos de consulta.</p>
+        </div>
+        <div class="page-actions">
+          <a href="atencion-registrar.html" class="btn btn-primary">Registrar atención</a>
+        </div>
+      </header>
+
+      <div class="page-content grid-12">
+        <article class="metric-card col-md-4">
+          <span class="metric-label">Citas de hoy</span>
+          <span class="metric-value">6</span>
+          <p class="metric-description">Turnos asignados para la jornada</p>
+        </article>
+        <article class="metric-card metric-card-success col-md-4">
+          <span class="metric-label">Atendidas</span>
+          <span class="metric-value">2</span>
+          <p class="metric-description">Consultas registradas hoy</p>
+        </article>
+        <article class="metric-card metric-card-warning col-md-4">
+          <span class="metric-label">Pendientes</span>
+          <span class="metric-value">4</span>
+          <p class="metric-description">Próximo turno: 08:30 Toby</p>
+        </article>
+
+        <section class="col-12" aria-labelledby="accesos-title">
+          <h2 id="accesos-title" class="fs-md mb-3">Accesos directos</h2>
+          <div class="grid-12">
+            <article class="card col-md-4">
+              <div class="card-body d-flex flex-column justify-between gap-3">
+                <div>
+                  <h3 class="card-title mb-1">Agenda del día</h3>
+                  <p class="fs-sm text-muted">Consulte los turnos programados y pacientes en espera.</p>
+                </div>
+                <a href="agenda-dia.html" class="btn btn-primary btn-sm">Ver agenda</a>
+              </div>
+            </article>
+            <article class="card col-md-4">
+              <div class="card-body d-flex flex-column justify-between gap-3">
+                <div>
+                  <h3 class="card-title mb-1">Registrar atención</h3>
+                  <p class="fs-sm text-muted">Ingrese constantes, diagnóstico y tratamiento de una consulta.</p>
+                </div>
+                <a href="atencion-registrar.html" class="btn btn-secondary btn-sm">Registrar atención</a>
+              </div>
+            </article>
+            <article class="card col-md-4">
+              <div class="card-body d-flex flex-column justify-between gap-3">
+                <div>
+                  <h3 class="card-title mb-1">Historial clínico</h3>
+                  <p class="fs-sm text-muted">Busque antecedentes y consultas previas de cada paciente.</p>
+                </div>
+                <a href="historial-buscar.html" class="btn btn-outline btn-sm">Buscar historial</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="col-12" aria-labelledby="agenda-hoy-title">
+          <div class="card">
+            <div class="card-header">
+              <h2 id="agenda-hoy-title" class="card-title">Pacientes programados para hoy</h2>
+              <a href="agenda-dia.html" class="btn btn-outline btn-sm">Ver agenda</a>
+            </div>
+            <div class="table-wrapper">
+              <table class="table">
+                <caption class="visually-hidden">Pacientes asignados para hoy</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Paciente</th>
+                    <th scope="col">Especie y raza</th>
+                    <th scope="col">Propietario</th>
+                    <th scope="col">Motivo</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" data-label="Hora">08:30 - 09:00</th>
+                    <td data-label="Paciente">Toby</td>
+                    <td data-label="Especie y raza">Perro &middot; Golden Retriever</td>
+                    <td data-label="Propietario">Carlos Mendoza</td>
+                    <td data-label="Motivo">Vómitos y decaimiento</td>
+                    <td data-label="Estado"><span class="badge badge-programada">Programada</span></td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="atencion-registrar.html" class="btn btn-primary btn-sm">Registrar atención</a>
+                        <a href="historial-detalle.html" class="btn btn-outline btn-sm">Ver historial</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Hora">09:30 - 10:00</th>
+                    <td data-label="Paciente">Rocky</td>
+                    <td data-label="Especie y raza">Perro &middot; Pastor Alemán</td>
+                    <td data-label="Propietario">Juan Pérez</td>
+                    <td data-label="Motivo">Control y desparasitación</td>
+                    <td data-label="Estado"><span class="badge badge-atendida">Atendida</span></td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="historial-detalle.html" class="btn btn-outline btn-sm">Ver historial</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Hora">11:00 - 11:30</th>
+                    <td data-label="Paciente">Max</td>
+                    <td data-label="Especie y raza">Perro &middot; Schnauzer</td>
+                    <td data-label="Propietario">Sofía Ramos</td>
+                    <td data-label="Motivo">Vacunación múltiple</td>
+                    <td data-label="Estado"><span class="badge badge-programada">Programada</span></td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="atencion-registrar.html" class="btn btn-primary btn-sm">Registrar atención</a>
+                        <a href="historial-detalle.html" class="btn btn-outline btn-sm">Ver historial</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Hora">14:00 - 14:30</th>
+                    <td data-label="Paciente">Misi</td>
+                    <td data-label="Especie y raza">Gato &middot; Angora</td>
+                    <td data-label="Propietario">Elena Gómez</td>
+                    <td data-label="Motivo">Revisión dermatológica</td>
+                    <td data-label="Estado"><span class="badge badge-programada">Programada</span></td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="atencion-registrar.html" class="btn btn-primary btn-sm">Registrar atención</a>
+                        <a href="historial-detalle.html" class="btn btn-outline btn-sm">Ver historial</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="page-footer">
+        <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

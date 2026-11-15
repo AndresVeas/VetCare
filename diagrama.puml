@@ -1,0 +1,65 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam usecase {
+  BackgroundColor #F8FAFC
+  BorderColor #0F172A
+  ArrowColor #334155
+}
+skinparam actor {
+  BackgroundColor #E2E8F0
+  BorderColor #0F172A
+}
+
+actor "Usuario del Sistema" as Usuario
+actor "Recepcionista" as Recepcionista
+actor "Médico Veterinario" as Veterinario
+actor "Administrador" as Admin
+
+' Generalización de actores
+Usuario <|-- Recepcionista
+Usuario <|-- Veterinario
+Usuario <|-- Admin
+
+rectangle "VetCare" {
+  usecase "CU-01: Iniciar sesión" as CU01
+
+  usecase "CU-02: Gestionar propietarios" as CU02
+  usecase "CU-03: Gestionar mascotas" as CU03
+  usecase "CU-04: Agendar cita" as CU04
+  usecase "CU-05: Gestionar citas" as CU05
+
+  usecase "CU-06: Consultar agenda del día" as CU06
+  usecase "CU-07: Registrar atención médica" as CU07
+  usecase "CU-08: Consultar historial clínico" as CU08
+
+  usecase "CU-09: Gestionar veterinarios" as CU09
+  usecase "CU-10: Gestionar servicios" as CU10
+
+  ' Extensiones opcionales desde el flujo de agendar cita
+  CU02 ..> CU04 : <<extend>>
+  CU03 ..> CU04 : <<extend>>
+}
+
+Usuario -- CU01
+
+Recepcionista -- CU02
+Recepcionista -- CU03
+Recepcionista -- CU04
+Recepcionista -- CU05
+
+Veterinario -- CU06
+Veterinario -- CU07
+Veterinario -- CU08
+
+Admin -- CU09
+Admin -- CU10
+
+note right of CU04
+  Puntos de extensión:
+  1. Cliente primerizo -> registrar propietario (CU-02).
+  2. Mascota nueva -> registrar mascota (CU-03).
+end note
+
+@enduml

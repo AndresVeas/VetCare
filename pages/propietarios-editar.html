@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VetCare - Editar datos de propietario en la Clínica Veterinaria Huellitas.">
+  <title>Editar propietario | VetCare - Clínica Huellitas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <div class="app-layout">
+    <!-- Navbar unificado: Recepcionista -->
+    <header class="app-navbar">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+      <div class="navbar-top">
+        <a href="recepcionista-dashboard.html" class="navbar-brand">
+          <span class="brand-mark" aria-hidden="true">VC</span>
+          <span>VetCare</span>
+          <span class="navbar-role">Recepción</span>
+        </a>
+        <label for="nav-toggle" class="nav-toggle-btn">
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+          <span>Menú</span>
+        </label>
+      </div>
+      <nav class="navbar-menu" aria-label="Navegación principal">
+        <span class="nav-section-title">Recepción</span>
+        <ul class="nav-list">
+          <li><a href="recepcionista-dashboard.html" class="nav-link">Panel principal</a></li>
+          <li><a href="propietarios-listado.html" class="nav-link active" aria-current="page">Propietarios</a></li>
+          <li><a href="mascotas-listado.html" class="nav-link">Mascotas</a></li>
+          <li><a href="citas-agendar.html" class="nav-link">Agendar cita</a></li>
+          <li><a href="citas-listado.html" class="nav-link">Citas</a></li>
+        </ul>
+      </nav>
+      <div class="navbar-user">
+        <div>
+          <span class="navbar-user-name">Ana Torres</span>
+          <span class="navbar-user-role">Recepcionista</span>
+        </div>
+        <a href="../index.html" class="navbar-logout">Cerrar sesión</a>
+      </div>
+    </header>
+
+    <main class="app-main" id="main-content">
+      <header class="page-header">
+        <div class="d-flex flex-column gap-1">
+          <nav aria-label="Migas de pan">
+            <ol class="breadcrumbs">
+              <li class="breadcrumb-item"><a href="recepcionista-dashboard.html">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="propietarios-listado.html">Propietarios</a></li>
+              <li class="breadcrumb-item" aria-current="page">Editar propietario</li>
+            </ol>
+          </nav>
+          <h1 class="page-title">Editar propietario</h1>
+          <p class="page-subtitle">Actualice los datos de Carlos Mendoza.</p>
+        </div>
+        <div class="page-actions">
+          <a href="propietarios-listado.html" class="btn btn-outline">Volver al listado</a>
+        </div>
+      </header>
+
+      <div class="page-content grid-12">
+        <section class="col-lg-8" aria-labelledby="form-editar-propietario-title">
+          <form action="propietarios-listado.html" method="get" class="card">
+            <div class="card-header">
+              <h2 id="form-editar-propietario-title" class="card-title">Datos del propietario</h2>
+              <span class="badge badge-success">Activo</span>
+            </div>
+            <div class="card-body">
+              <fieldset class="form-fieldset">
+                <legend class="form-legend">Información personal y contacto</legend>
+                <div class="grid-12">
+                  <div class="form-group col-md-6">
+                    <label for="cedula" class="form-label required">Cédula</label>
+                    <input type="text" id="cedula" name="cedula" class="form-control" value="1712345678" required pattern="[0-9]{10}" minlength="10" maxlength="10" inputmode="numeric">
+                    <span class="form-hint">10 dígitos numéricos sin guiones.</span>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="nombres" class="form-label required">Nombres y apellidos</label>
+                    <input type="text" id="nombres" name="nombres" class="form-control" value="Carlos Mendoza" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,50}" minlength="2" maxlength="50" autocomplete="name">
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="celular" class="form-label required">Teléfono celular</label>
+                    <input type="tel" id="celular" name="celular" class="form-control" value="0998765432" required pattern="09[0-9]{8}" minlength="10" maxlength="10" inputmode="tel" autocomplete="tel">
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="email" class="form-label required">Correo electrónico</label>
+                    <input type="email" id="email" name="email" class="form-control" value="carlos.mendoza@email.com" required maxlength="80" autocomplete="email">
+                  </div>
+
+                  <div class="form-group col-12 mb-0">
+                    <label for="direccion" class="form-label required">Dirección</label>
+                    <input type="text" id="direccion" name="direccion" class="form-control" value="Av. Amazonas N24-196 y Colón, Quito" required minlength="5" maxlength="200" autocomplete="street-address">
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="btn-group mt-2">
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                <a href="propietarios-listado.html" class="btn btn-outline">Cancelar</a>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <aside class="col-lg-4" aria-labelledby="mascotas-vinculadas-title">
+          <div class="card">
+            <div class="card-header">
+              <h2 id="mascotas-vinculadas-title" class="card-title">Mascotas vinculadas</h2>
+            </div>
+            <div class="card-body d-flex flex-column gap-4">
+              <ul class="data-list">
+                <li class="data-item">
+                  <span class="data-label">Nombre</span>
+                  <span class="data-value">Toby</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Especie y raza</span>
+                  <span class="data-value">Perro &middot; Golden Retriever</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Peso</span>
+                  <span class="data-value">28.5 kg</span>
+                </li>
+              </ul>
+              <div class="btn-group">
+                <a href="mascotas-editar.html" class="btn btn-outline btn-sm">Editar mascota</a>
+                <a href="mascotas-nuevo.html" class="btn btn-secondary btn-sm">Nueva mascota</a>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <footer class="page-footer">
+        <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VetCare - Detalle del historial clínico del paciente en la Clínica Veterinaria Huellitas.">
+  <title>Historial de Toby | VetCare - Clínica Huellitas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <div class="app-layout">
+    <!-- Navbar unificado: Médico veterinario -->
+    <header class="app-navbar">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+      <div class="navbar-top">
+        <a href="veterinario-dashboard.html" class="navbar-brand">
+          <span class="brand-mark" aria-hidden="true">VC</span>
+          <span>VetCare</span>
+          <span class="navbar-role">Veterinario</span>
+        </a>
+        <label for="nav-toggle" class="nav-toggle-btn">
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+          <span>Menú</span>
+        </label>
+      </div>
+      <nav class="navbar-menu" aria-label="Navegación principal">
+        <span class="nav-section-title">Área clínica</span>
+        <ul class="nav-list">
+          <li><a href="veterinario-dashboard.html" class="nav-link">Panel principal</a></li>
+          <li><a href="agenda-dia.html" class="nav-link">Agenda del día</a></li>
+          <li><a href="atencion-registrar.html" class="nav-link">Registrar atención</a></li>
+          <li><a href="historial-buscar.html" class="nav-link active" aria-current="page">Historial clínico</a></li>
+        </ul>
+      </nav>
+      <div class="navbar-user">
+        <div>
+          <span class="navbar-user-name">Dr. Esteban Morales</span>
+          <span class="navbar-user-role">Médico veterinario</span>
+        </div>
+        <a href="../index.html" class="navbar-logout">Cerrar sesión</a>
+      </div>
+    </header>
+
+    <main class="app-main" id="main-content">
+      <header class="page-header">
+        <div class="d-flex flex-column gap-1">
+          <nav aria-label="Migas de pan">
+            <ol class="breadcrumbs">
+              <li class="breadcrumb-item"><a href="veterinario-dashboard.html">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="historial-buscar.html">Historial clínico</a></li>
+              <li class="breadcrumb-item" aria-current="page">Toby</li>
+            </ol>
+          </nav>
+          <h1 class="page-title">Historial clínico de Toby</h1>
+          <p class="page-subtitle">Perro &middot; Golden Retriever &middot; Propietario: Carlos Mendoza</p>
+        </div>
+        <div class="page-actions">
+          <a href="atencion-registrar.html" class="btn btn-primary">Registrar atención</a>
+          <a href="historial-buscar.html" class="btn btn-outline">Volver al listado</a>
+        </div>
+      </header>
+
+      <div class="page-content grid-12">
+        <article class="card col-12" aria-labelledby="resumen-paciente-title">
+          <div class="card-header">
+            <h2 id="resumen-paciente-title" class="card-title">Ficha del paciente</h2>
+            <span class="badge badge-danger">Alergia: Penicilina</span>
+          </div>
+          <div class="card-body grid-12">
+            <div class="col-md-6">
+              <ul class="data-list">
+                <li class="data-item">
+                  <span class="data-label">Nombre</span>
+                  <span class="data-value">Toby</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Especie y raza</span>
+                  <span class="data-value">Perro &middot; Golden Retriever</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Sexo y nacimiento</span>
+                  <span class="data-value">Macho &middot; 10/04/2021</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Peso</span>
+                  <span class="data-value">28.5 kg</span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="data-list">
+                <li class="data-item">
+                  <span class="data-label">Propietario</span>
+                  <span class="data-value">Carlos Mendoza</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Cédula</span>
+                  <span class="data-value">1712345678</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Teléfono</span>
+                  <span class="data-value">0998765432</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Correo</span>
+                  <span class="data-value">carlos.mendoza@email.com</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <section class="col-12" aria-labelledby="consultas-title">
+          <div class="d-flex items-center justify-between mb-4">
+            <h2 id="consultas-title" class="fs-lg">Consultas registradas</h2>
+            <span class="fs-sm text-muted">3 atenciones</span>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item card">
+              <div class="card-header">
+                <h3 class="card-title">14/10/2026 &middot; Vacunación</h3>
+                <span class="badge badge-atendida">Dr. Esteban Morales</span>
+              </div>
+              <div class="card-body">
+                <ul class="data-list">
+                  <li class="data-item">
+                    <span class="data-label">Motivo</span>
+                    <span class="data-value text-left">Control anual y revacunación</span>
+                  </li>
+                  <li class="data-item">
+                    <span class="data-label">Diagnóstico</span>
+                    <span class="data-value text-left">Paciente clínicamente sano.</span>
+                  </li>
+                  <li class="data-item">
+                    <span class="data-label">Tratamiento</span>
+                    <span class="data-value text-left">Aplicación de vacuna séxtuple canina. Reposo 24 horas.</span>
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-item card">
+              <div class="card-header">
+                <h3 class="card-title">20/06/2026 &middot; Consulta general</h3>
+                <span class="badge badge-atendida">Dra. Camila Morales</span>
+              </div>
+              <div class="card-body">
+                <ul class="data-list">
+                  <li class="data-item">
+                    <span class="data-label">Motivo</span>
+                    <span class="data-value text-left">Prurito auricular y secreción</span>
+                  </li>
+                  <li class="data-item">
+                    <span class="data-label">Diagnóstico</span>
+                    <span class="data-value text-left">Otitis externa bilateral leve.</span>
+                  </li>
+                  <li class="data-item">
+                    <span class="data-label">Tratamiento</span>
+                    <span class="data-value text-left">Limpieza ótica y gotas cada 12 horas por 7 días.</span>
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-item card">
+              <div class="card-header">
+                <h3 class="card-title">15/01/2026 &middot; Profilaxis dental</h3>
+                <span class="badge badge-atendida">Dr. Esteban Morales</span>
+              </div>
+              <div class="card-body">
+                <ul class="data-list">
+                  <li class="data-item">
+                    <span class="data-label">Motivo</span>
+                    <span class="data-value text-left">Limpieza dental y retiro de sarro</span>
+                  </li>
+                  <li class="data-item">
+                    <span class="data-label">Diagnóstico</span>
+                    <span class="data-value text-left">Gingivitis leve grado I.</span>
+                  </li>
+                  <li class="data-item">
+                    <span class="data-label">Tratamiento</span>
+                    <span class="data-value text-left">Profilaxis ultrasónica y antiséptico tópico por 5 días.</span>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <footer class="page-footer">
+        <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

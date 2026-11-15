@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VetCare - Confirmar eliminación de propietario en la Clínica Veterinaria Huellitas.">
+  <title>Eliminar propietario | VetCare - Clínica Huellitas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <div class="app-layout">
+    <!-- Navbar unificado: Recepcionista -->
+    <header class="app-navbar">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+      <div class="navbar-top">
+        <a href="recepcionista-dashboard.html" class="navbar-brand">
+          <span class="brand-mark" aria-hidden="true">VC</span>
+          <span>VetCare</span>
+          <span class="navbar-role">Recepción</span>
+        </a>
+        <label for="nav-toggle" class="nav-toggle-btn">
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+          <span>Menú</span>
+        </label>
+      </div>
+      <nav class="navbar-menu" aria-label="Navegación principal">
+        <span class="nav-section-title">Recepción</span>
+        <ul class="nav-list">
+          <li><a href="recepcionista-dashboard.html" class="nav-link">Panel principal</a></li>
+          <li><a href="propietarios-listado.html" class="nav-link active" aria-current="page">Propietarios</a></li>
+          <li><a href="mascotas-listado.html" class="nav-link">Mascotas</a></li>
+          <li><a href="citas-agendar.html" class="nav-link">Agendar cita</a></li>
+          <li><a href="citas-listado.html" class="nav-link">Citas</a></li>
+        </ul>
+      </nav>
+      <div class="navbar-user">
+        <div>
+          <span class="navbar-user-name">Ana Torres</span>
+          <span class="navbar-user-role">Recepcionista</span>
+        </div>
+        <a href="../index.html" class="navbar-logout">Cerrar sesión</a>
+      </div>
+    </header>
+
+    <main class="app-main" id="main-content">
+      <header class="page-header">
+        <div class="d-flex flex-column gap-1">
+          <nav aria-label="Migas de pan">
+            <ol class="breadcrumbs">
+              <li class="breadcrumb-item"><a href="recepcionista-dashboard.html">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="propietarios-listado.html">Propietarios</a></li>
+              <li class="breadcrumb-item" aria-current="page">Eliminar propietario</li>
+            </ol>
+          </nav>
+          <h1 class="page-title">Eliminar propietario</h1>
+          <p class="page-subtitle">Confirme la eliminación del registro de Carlos Mendoza.</p>
+        </div>
+        <div class="page-actions">
+          <a href="propietarios-listado.html" class="btn btn-outline">Volver al listado</a>
+        </div>
+      </header>
+
+      <div class="page-content grid-12">
+        <section class="col-lg-8" aria-labelledby="confirmar-eliminar-title">
+          <form action="propietarios-listado.html" method="get" class="card">
+            <div class="card-header">
+              <h2 id="confirmar-eliminar-title" class="card-title">Confirmar eliminación</h2>
+            </div>
+            <div class="card-body d-flex flex-column gap-4">
+              <div class="alert alert-warning" role="alert">
+                Esta acción no se puede deshacer.
+              </div>
+
+              <ul class="data-list">
+                <li class="data-item">
+                  <span class="data-label">Cédula</span>
+                  <span class="data-value">1712345678</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Propietario</span>
+                  <span class="data-value">Carlos Mendoza</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Teléfono</span>
+                  <span class="data-value">0998765432</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Correo</span>
+                  <span class="data-value">carlos.mendoza@email.com</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Dirección</span>
+                  <span class="data-value">Av. Amazonas N24-196 y Colón, Quito</span>
+                </li>
+                <li class="data-item">
+                  <span class="data-label">Mascotas vinculadas</span>
+                  <span class="data-value">Toby (Perro, Golden Retriever)</span>
+                </li>
+              </ul>
+
+              <div class="btn-group">
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+                <a href="propietarios-listado.html" class="btn btn-outline">Cancelar</a>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <footer class="page-footer">
+        <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

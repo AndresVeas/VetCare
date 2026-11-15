@@ -1,0 +1,170 @@
+@startuml
+title Mapa Navegacional VetCare (FSM Jerarquica)
+
+hide empty description
+top to bottom direction
+skinparam linetype polyline
+skinparam nodesep 35
+skinparam ranksep 50
+skinparam padding 6
+
+state "index" as index
+
+[*] --> index
+index --> recepcionista_dashboard
+index --> veterinario_dashboard
+index --> admin_dashboard
+
+' =========================================================
+' ROL: ADMINISTRADOR
+' =========================================================
+state "Administrador" as mod_admin {
+  state "admin-dashboard" as admin_dashboard
+
+  state "Gestion Veterinarios" as sub_vet {
+    state "veterinarios-listado" as veterinarios_listado
+    state "veterinarios-nuevo" as veterinarios_nuevo
+    state "veterinarios-editar" as veterinarios_editar
+    state "veterinarios-eliminar" as veterinarios_eliminar
+  }
+
+  state "Gestion Servicios" as sub_serv {
+    state "servicios-listado" as servicios_listado
+    state "servicios-nuevo" as servicios_nuevo
+    state "servicios-editar" as servicios_editar
+    state "servicios-eliminar" as servicios_eliminar
+  }
+
+  admin_dashboard --> admin_dashboard
+  admin_dashboard --> veterinarios_nuevo
+  admin_dashboard --> veterinarios_editar
+  admin_dashboard --> servicios_nuevo
+  admin_dashboard --> servicios_editar
+
+  veterinarios_listado --> veterinarios_listado
+  veterinarios_listado --> veterinarios_nuevo
+  veterinarios_listado --> veterinarios_editar
+  veterinarios_listado --> veterinarios_eliminar
+  veterinarios_nuevo --> veterinarios_listado
+  veterinarios_editar --> veterinarios_listado
+  veterinarios_eliminar --> veterinarios_listado
+
+  servicios_listado --> servicios_listado
+  servicios_listado --> servicios_nuevo
+  servicios_listado --> servicios_editar
+  servicios_listado --> servicios_eliminar
+  servicios_nuevo --> servicios_listado
+  servicios_editar --> servicios_listado
+  servicios_eliminar --> servicios_listado
+}
+
+' Navegacion global del navbar (Administrador)
+mod_admin --> index
+mod_admin --> admin_dashboard
+mod_admin --> veterinarios_listado
+mod_admin --> servicios_listado
+
+' =========================================================
+' ROL: VETERINARIO
+' =========================================================
+state "Veterinario" as mod_vet {
+  state "veterinario-dashboard" as veterinario_dashboard
+  state "agenda-dia" as agenda_dia
+  state "atencion-registrar" as atencion_registrar
+  state "historial-buscar" as historial_buscar
+  state "historial-detalle" as historial_detalle
+
+  veterinario_dashboard --> veterinario_dashboard
+  veterinario_dashboard --> historial_detalle
+
+  agenda_dia --> agenda_dia
+  agenda_dia --> historial_detalle
+
+  atencion_registrar --> atencion_registrar
+  atencion_registrar --> historial_detalle
+
+  historial_buscar --> historial_buscar
+  historial_buscar --> historial_detalle
+}
+
+' Navegacion global del navbar (Veterinario)
+mod_vet --> index
+mod_vet --> veterinario_dashboard
+mod_vet --> agenda_dia
+mod_vet --> atencion_registrar
+mod_vet --> historial_buscar
+
+' =========================================================
+' ROL: RECEPCIONISTA
+' =========================================================
+state "Recepcionista" as mod_recepcion {
+  state "recepcionista-dashboard" as recepcionista_dashboard
+
+  state "Propietarios" as sub_prop {
+    state "propietarios-listado" as propietarios_listado
+    state "propietarios-nuevo" as propietarios_nuevo
+    state "propietarios-editar" as propietarios_editar
+    state "propietarios-eliminar" as propietarios_eliminar
+  }
+
+  state "Mascotas" as sub_masc {
+    state "mascotas-listado" as mascotas_listado
+    state "mascotas-nuevo" as mascotas_nuevo
+    state "mascotas-editar" as mascotas_editar
+    state "mascotas-eliminar" as mascotas_eliminar
+  }
+
+  state "Citas" as sub_citas {
+    state "citas-agendar" as citas_agendar
+    state "citas-listado" as citas_listado
+    state "citas-reprogramar" as citas_reprogramar
+    state "citas-cancelar" as citas_cancelar
+  }
+
+  recepcionista_dashboard --> recepcionista_dashboard
+  recepcionista_dashboard --> propietarios_nuevo
+  recepcionista_dashboard --> mascotas_nuevo
+  recepcionista_dashboard --> citas_reprogramar
+  recepcionista_dashboard --> citas_cancelar
+
+  propietarios_listado --> propietarios_listado
+  propietarios_listado --> propietarios_nuevo
+  propietarios_listado --> propietarios_editar
+  propietarios_listado --> propietarios_eliminar
+  propietarios_nuevo --> propietarios_listado
+  propietarios_editar --> propietarios_listado
+  propietarios_eliminar --> propietarios_listado
+
+  mascotas_listado --> mascotas_listado
+  mascotas_listado --> mascotas_nuevo
+  mascotas_listado --> mascotas_editar
+  mascotas_listado --> mascotas_eliminar
+  mascotas_nuevo --> mascotas_listado
+  mascotas_editar --> mascotas_listado
+  mascotas_eliminar --> mascotas_listado
+
+  citas_agendar --> citas_agendar
+  citas_agendar --> citas_listado
+  citas_listado --> citas_listado
+  citas_listado --> citas_reprogramar
+  citas_listado --> citas_cancelar
+  citas_reprogramar --> citas_listado
+  citas_cancelar --> citas_listado
+
+  ' Accesos cruzados entre submodulos (sin pasar por navbar)
+  propietarios_editar --> mascotas_nuevo
+  propietarios_editar --> mascotas_editar
+  mascotas_nuevo --> propietarios_nuevo
+  citas_agendar --> propietarios_nuevo
+  citas_agendar --> mascotas_nuevo
+}
+
+' Navegacion global del navbar (Recepcionista)
+mod_recepcion --> index
+mod_recepcion --> recepcionista_dashboard
+mod_recepcion --> propietarios_listado
+mod_recepcion --> mascotas_listado
+mod_recepcion --> citas_agendar
+mod_recepcion --> citas_listado
+
+@enduml

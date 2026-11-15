@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VetCare - Catálogo de servicios médicos de la Clínica Veterinaria Huellitas.">
+  <title>Servicios | VetCare - Clínica Huellitas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <div class="app-layout">
+    <!-- Navbar unificado: Administrador -->
+    <header class="app-navbar">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+      <div class="navbar-top">
+        <a href="admin-dashboard.html" class="navbar-brand">
+          <span class="brand-mark" aria-hidden="true">VC</span>
+          <span>VetCare</span>
+          <span class="navbar-role">Admin</span>
+        </a>
+        <label for="nav-toggle" class="nav-toggle-btn">
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+          <span>Menú</span>
+        </label>
+      </div>
+      <nav class="navbar-menu" aria-label="Navegación principal">
+        <span class="nav-section-title">Administración</span>
+        <ul class="nav-list">
+          <li><a href="admin-dashboard.html" class="nav-link">Panel principal</a></li>
+          <li><a href="veterinarios-listado.html" class="nav-link">Veterinarios</a></li>
+          <li><a href="servicios-listado.html" class="nav-link active" aria-current="page">Servicios</a></li>
+        </ul>
+      </nav>
+      <div class="navbar-user">
+        <div>
+          <span class="navbar-user-name">Ing. Patricia Viteri</span>
+          <span class="navbar-user-role">Administradora</span>
+        </div>
+        <a href="../index.html" class="navbar-logout">Cerrar sesión</a>
+      </div>
+    </header>
+
+    <main class="app-main" id="main-content">
+      <header class="page-header">
+        <div class="d-flex flex-column gap-1">
+          <nav aria-label="Migas de pan">
+            <ol class="breadcrumbs">
+              <li class="breadcrumb-item"><a href="admin-dashboard.html">Inicio</a></li>
+              <li class="breadcrumb-item" aria-current="page">Servicios</li>
+            </ol>
+          </nav>
+          <h1 class="page-title">Servicios</h1>
+          <p class="page-subtitle">Administre el catálogo de servicios clínicos, duración y tarifas.</p>
+        </div>
+        <div class="page-actions">
+          <a href="servicios-nuevo.html" class="btn btn-primary">Nuevo servicio</a>
+        </div>
+      </header>
+
+      <div class="page-content grid-12">
+        <article class="metric-card col-md-6">
+          <span class="metric-label">Servicios activos</span>
+          <span class="metric-value">12</span>
+          <p class="metric-description">Disponibles para agendamiento</p>
+        </article>
+        <article class="metric-card metric-card-success col-md-6">
+          <span class="metric-label">Categorías</span>
+          <span class="metric-value">5</span>
+          <p class="metric-description">Áreas clínicas habilitadas</p>
+        </article>
+
+        <section class="col-12" aria-labelledby="filtros-servicios-title">
+          <form action="servicios-listado.html" method="get" class="card" role="search">
+            <div class="card-header">
+              <h2 id="filtros-servicios-title" class="card-title">Buscar servicios</h2>
+            </div>
+            <div class="card-body grid-12">
+              <div class="form-group col-md-6 col-lg-5 mb-0">
+                <label for="buscar_servicio" class="form-label">Código o nombre del servicio</label>
+                <input type="search" id="buscar_servicio" name="q" class="form-control" maxlength="60" placeholder="Ej.: Consulta general">
+              </div>
+              <div class="form-group col-md-6 col-lg-4 mb-0">
+                <label for="categoria_filtro" class="form-label">Categoría</label>
+                <select id="categoria_filtro" name="categoria" class="form-select">
+                  <option value="" selected>Todas</option>
+                  <option value="consulta">Consulta</option>
+                  <option value="vacunacion">Vacunación</option>
+                  <option value="preventiva">Medicina preventiva</option>
+                  <option value="odontologia">Odontología</option>
+                  <option value="cirugia">Cirugía</option>
+                </select>
+              </div>
+              <div class="col-md-12 col-lg-3 d-flex items-end">
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-primary">Buscar</button>
+                  <a href="servicios-listado.html" class="btn btn-outline">Limpiar</a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <section class="col-12" aria-labelledby="tabla-servicios-title">
+          <div class="card">
+            <div class="card-header">
+              <h2 id="tabla-servicios-title" class="card-title">Listado de servicios</h2>
+              <span class="fs-sm text-muted">4 registros</span>
+            </div>
+            <div class="table-wrapper">
+              <table class="table">
+                <caption class="visually-hidden">Catálogo de servicios veterinarios</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Servicio</th>
+                    <th scope="col">Categoría</th>
+                    <th scope="col">Duración</th>
+                    <th scope="col">Tarifa</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" data-label="Código">SRV-001</th>
+                    <td data-label="Servicio">Consulta general</td>
+                    <td data-label="Categoría">Consulta</td>
+                    <td data-label="Duración">30 min</td>
+                    <td data-label="Tarifa">$15.00</td>
+                    <td data-label="Estado"><span class="badge badge-atendida">Activo</span></td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="servicios-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                        <a href="servicios-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Código">SRV-002</th>
+                    <td data-label="Servicio">Vacunación</td>
+                    <td data-label="Categoría">Vacunación</td>
+                    <td data-label="Duración">30 min</td>
+                    <td data-label="Tarifa">$22.50</td>
+                    <td data-label="Estado"><span class="badge badge-atendida">Activo</span></td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="servicios-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                        <a href="servicios-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Código">SRV-003</th>
+                    <td data-label="Servicio">Desparasitación</td>
+                    <td data-label="Categoría">Medicina preventiva</td>
+                    <td data-label="Duración">30 min</td>
+                    <td data-label="Tarifa">$12.00</td>
+                    <td data-label="Estado"><span class="badge badge-atendida">Activo</span></td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="servicios-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                        <a href="servicios-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Código">SRV-004</th>
+                    <td data-label="Servicio">Profilaxis dental</td>
+                    <td data-label="Categoría">Odontología</td>
+                    <td data-label="Duración">60 min</td>
+                    <td data-label="Tarifa">$45.00</td>
+                    <td data-label="Estado"><span class="badge badge-atendida">Activo</span></td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="servicios-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                        <a href="servicios-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="page-footer">
+        <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
