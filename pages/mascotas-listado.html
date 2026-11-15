@@ -31,7 +31,6 @@
           <li><a href="recepcionista-dashboard.html" class="nav-link">Panel principal</a></li>
           <li><a href="propietarios-listado.html" class="nav-link">Propietarios</a></li>
           <li><a href="mascotas-listado.html" class="nav-link active" aria-current="page">Mascotas</a></li>
-          <li><a href="citas-agendar.html" class="nav-link">Agendar cita</a></li>
           <li><a href="citas-listado.html" class="nav-link">Citas</a></li>
         </ul>
       </nav>
@@ -62,31 +61,16 @@
       </header>
 
       <div class="page-content grid-12">
-        <article class="metric-card col-md-4">
-          <span class="metric-label">Total mascotas</span>
-          <span class="metric-value">142</span>
-          <p class="metric-description">Pacientes con ficha activa</p>
-        </article>
-        <article class="metric-card metric-card-success col-md-4">
-          <span class="metric-label">Caninos</span>
-          <span class="metric-value">86</span>
-          <p class="metric-description">Perros registrados</p>
-        </article>
-        <article class="metric-card metric-card-secondary col-md-4">
-          <span class="metric-label">Felinos y otros</span>
-          <span class="metric-value">56</span>
-          <p class="metric-description">Gatos, aves y roedores</p>
-        </article>
-
         <section class="col-12" aria-labelledby="filtros-mascotas-title">
           <form action="mascotas-listado.html" method="get" class="card" role="search">
             <div class="card-header">
-              <h2 id="filtros-mascotas-title" class="card-title">Buscar mascotas</h2>
+              <h2 id="filtros-mascotas-title" class="card-title">Consultar mascotas por propietario</h2>
             </div>
             <div class="card-body grid-12">
               <div class="form-group col-md-6 col-lg-5 mb-0">
-                <label for="buscar-mascota" class="form-label">Nombre o propietario</label>
-                <input type="search" id="buscar-mascota" name="q" class="form-control" maxlength="100" placeholder="Ej.: Toby">
+                <label for="buscar-cedula-propietario" class="form-label required">Cédula del propietario</label>
+                <input type="search" id="buscar-cedula-propietario" name="cedula" class="form-control" pattern="[0-9]{10}" maxlength="10" required placeholder="Ej.: 1712345678">
+                <span class="form-hint">Ingrese los 10 dígitos de la cédula para ver sus mascotas asignadas.</span>
               </div>
               <div class="form-group col-md-6 col-lg-4 mb-0">
                 <label for="filtro-especie" class="form-label">Especie</label>

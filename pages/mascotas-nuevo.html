@@ -31,7 +31,6 @@
           <li><a href="recepcionista-dashboard.html" class="nav-link">Panel principal</a></li>
           <li><a href="propietarios-listado.html" class="nav-link">Propietarios</a></li>
           <li><a href="mascotas-listado.html" class="nav-link active" aria-current="page">Mascotas</a></li>
-          <li><a href="citas-agendar.html" class="nav-link">Agendar cita</a></li>
           <li><a href="citas-listado.html" class="nav-link">Citas</a></li>
         </ul>
       </nav>
@@ -144,7 +143,7 @@
                     <option value="1719988776">Sofía Ramos &middot; 1719988776</option>
                     <option value="1721133557">Diego Castro &middot; 1721133557</option>
                   </select>
-                  <span class="form-hint">Si no existe, registre primero al <a href="propietarios-nuevo.html">nuevo propietario</a>.</span>
+                  <span class="form-hint">Si no existe, registre primero al nuevo propietario.</span>
                 </div>
 
                 <div class="form-group mb-0">
@@ -154,8 +153,14 @@
                 </div>
               </fieldset>
 
+              <div class="form-check mb-4">
+                <input type="checkbox" id="ir-agendar-cita" name="ir_agendar_cita" class="form-check-input next-step-toggle">
+                <label for="ir-agendar-cita" class="form-check-label">Agendar una cita para esta mascota al guardar</label>
+              </div>
+
               <div class="btn-group mt-2">
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary btn-submit-default">Guardar</button>
+                <button type="submit" class="btn btn-primary btn-submit-next" formaction="citas-agendar.html">Guardar</button>
                 <a href="mascotas-listado.html" class="btn btn-outline">Cancelar</a>
               </div>
             </div>

@@ -61,7 +61,7 @@
       </header>
 
       <div class="page-content grid-12">
-        <section class="col-lg-8" aria-labelledby="confirmar-eliminar-vet-title">
+        <section class="col-12 form-centered" aria-labelledby="confirmar-eliminar-vet-title">
           <form action="veterinarios-listado.html" method="get" class="card">
             <div class="card-header">
               <h2 id="confirmar-eliminar-vet-title" class="card-title">Confirmar eliminación</h2>
@@ -81,10 +81,6 @@
                   <span class="data-value">Dr. Esteban Morales</span>
                 </li>
                 <li class="data-item">
-                  <span class="data-label">Especialidad</span>
-                  <span class="data-value">Medicina general y cirugía</span>
-                </li>
-                <li class="data-item">
                   <span class="data-label">Registro SENESCYT</span>
                   <span class="data-value">SENESCYT-1008-2017</span>
                 </li>
@@ -97,6 +93,11 @@
                   <span class="data-value">Lun - Vie 08:00 - 16:30</span>
                 </li>
               </ul>
+
+              <div class="form-check">
+                <input type="checkbox" id="confirmar-eliminar-vet" name="confirmar" class="form-check-input" required>
+                <label for="confirmar-eliminar-vet" class="form-check-label">Confirmo que deseo eliminar este veterinario de forma permanente.</label>
+              </div>
 
               <div class="btn-group">
                 <button type="submit" class="btn btn-danger">Eliminar</button>

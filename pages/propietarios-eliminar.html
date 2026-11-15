@@ -31,7 +31,6 @@
           <li><a href="recepcionista-dashboard.html" class="nav-link">Panel principal</a></li>
           <li><a href="propietarios-listado.html" class="nav-link active" aria-current="page">Propietarios</a></li>
           <li><a href="mascotas-listado.html" class="nav-link">Mascotas</a></li>
-          <li><a href="citas-agendar.html" class="nav-link">Agendar cita</a></li>
           <li><a href="citas-listado.html" class="nav-link">Citas</a></li>
         </ul>
       </nav>
@@ -63,7 +62,7 @@
       </header>
 
       <div class="page-content grid-12">
-        <section class="col-lg-8" aria-labelledby="confirmar-eliminar-title">
+        <section class="col-12 form-centered" aria-labelledby="confirmar-eliminar-title">
           <form action="propietarios-listado.html" method="get" class="card">
             <div class="card-header">
               <h2 id="confirmar-eliminar-title" class="card-title">Confirmar eliminación</h2>
@@ -99,6 +98,11 @@
                   <span class="data-value">Toby (Perro, Golden Retriever)</span>
                 </li>
               </ul>
+
+              <div class="form-check">
+                <input type="checkbox" id="confirmar-eliminar-propietario" name="confirmar" class="form-check-input" required>
+                <label for="confirmar-eliminar-propietario" class="form-check-label">Confirmo que deseo eliminar este propietario de forma permanente.</label>
+              </div>
 
               <div class="btn-group">
                 <button type="submit" class="btn btn-danger">Eliminar</button>

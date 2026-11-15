@@ -41,7 +41,7 @@
   --color-nav-link: #CBD5E1;
   --color-nav-muted: #94A3B8;
 
-  /* Superficies */
+  /* Superficies */ 
   --color-bg: #F8FAFC;
   --color-surface: #FFFFFF;
   --color-surface-alt: #F1F5F9;
@@ -179,7 +179,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: var(--fs-xl); }
-h2 { font-size: var(--fs-lg); }
+h2 { font-size: var(--fs-md); }
 h3 { font-size: var(--fs-md); }
 h4 { font-size: var(--fs-base); }
 
@@ -821,6 +821,19 @@ textarea.form-control {
   cursor: pointer;
 }
 
+/* Redirección condicional de formularios con CSS puro */
+.btn-submit-next {
+  display: none;
+}
+
+form:has(.next-step-toggle:checked) .btn-submit-default {
+  display: none;
+}
+
+form:has(.next-step-toggle:checked) .btn-submit-next {
+  display: inline-flex;
+}
+
 /* 6.5 Tablas responsivas
    Movil/tablet: cada fila se transforma en una tarjeta apilada; cada celda
    muestra su encabezado mediante el atributo data-label. Sin scroll
@@ -1079,6 +1092,12 @@ textarea.form-control {
 /* --------------------------------------------------------------------------
    8. Clases utilitarias (todas basadas en variables)
    -------------------------------------------------------------------------- */
+
+.form-centered {
+  width: 100%;
+  max-width: 52rem;
+  margin-inline: auto;
+}
 
 /* 8.1 Display */
 .d-none { display: none; }

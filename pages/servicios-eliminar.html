@@ -61,7 +61,7 @@
       </header>
 
       <div class="page-content grid-12">
-        <section class="col-lg-8" aria-labelledby="confirmar-eliminar-servicio-title">
+        <section class="col-12 form-centered" aria-labelledby="confirmar-eliminar-servicio-title">
           <form action="servicios-listado.html" method="get" class="card">
             <div class="card-header">
               <h2 id="confirmar-eliminar-servicio-title" class="card-title">Confirmar eliminación</h2>
@@ -97,6 +97,11 @@
                   <span class="data-value">Activo</span>
                 </li>
               </ul>
+
+              <div class="form-check">
+                <input type="checkbox" id="confirmar-eliminar-servicio" name="confirmar" class="form-check-input" required>
+                <label for="confirmar-eliminar-servicio" class="form-check-label">Confirmo que deseo eliminar este servicio de forma permanente.</label>
+              </div>
 
               <div class="btn-group">
                 <button type="submit" class="btn btn-danger">Eliminar</button>
