@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="VetCare - Agendar cita médica en la Clínica Veterinaria Huellitas.">
   <title>Agendar cita | VetCare - Clínica Huellitas</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../../../css/styles.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -15,7 +15,7 @@
     <header class="app-navbar">
       <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
       <div class="navbar-top">
-        <a href="recepcionista-dashboard.html" class="navbar-brand">
+        <a href="../recepcionista-dashboard.html" class="navbar-brand">
           <span class="brand-mark" aria-hidden="true">VC</span>
           <span>VetCare</span>
           <span class="navbar-role">Recepción</span>
@@ -28,9 +28,9 @@
       <nav class="navbar-menu" aria-label="Navegación principal">
         <span class="nav-section-title">Recepción</span>
         <ul class="nav-list">
-          <li><a href="recepcionista-dashboard.html" class="nav-link">Panel principal</a></li>
-          <li><a href="propietarios-listado.html" class="nav-link">Propietarios</a></li>
-          <li><a href="mascotas-listado.html" class="nav-link">Mascotas</a></li>
+          <li><a href="../recepcionista-dashboard.html" class="nav-link">Panel principal</a></li>
+          <li><a href="../propietarios/propietarios-listado.html" class="nav-link">Propietarios</a></li>
+          <li><a href="../mascotas/mascotas-listado.html" class="nav-link">Mascotas</a></li>
           <li><a href="citas-listado.html" class="nav-link">Citas</a></li>
         </ul>
       </nav>
@@ -39,7 +39,7 @@
           <span class="navbar-user-name">Ana Torres</span>
           <span class="navbar-user-role">Recepcionista</span>
         </div>
-        <a href="../index.html" class="navbar-logout">Cerrar sesión</a>
+        <a href="../../../index.html" class="navbar-logout">Cerrar sesión</a>
       </div>
     </header>
 
@@ -48,7 +48,7 @@
         <div class="d-flex flex-column gap-1">
           <nav aria-label="Migas de pan">
             <ol class="breadcrumbs">
-              <li class="breadcrumb-item"><a href="recepcionista-dashboard.html">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="../recepcionista-dashboard.html">Inicio</a></li>
               <li class="breadcrumb-item"><a href="citas-listado.html">Citas</a></li>
               <li class="breadcrumb-item" aria-current="page">Agendar cita</li>
             </ol>
@@ -63,6 +63,21 @@
 
       <div class="page-content grid-12">
         <div class="col-12 form-centered d-flex flex-column gap-6">
+          <section aria-labelledby="accesos-registro-title">
+            <div class="card border-left-primary">
+              <div class="card-body d-flex flex-column flex-md-row items-md-center justify-md-between gap-3">
+                <div>
+                  <h2 id="accesos-registro-title" class="card-title mb-1">Registro previo</h2>
+                  <p class="fs-sm text-muted">Si el propietario o la mascota aún no constan en el sistema, regístrelos primero.</p>
+                </div>
+                <div class="btn-group">
+                  <a href="../propietarios/propietarios-nuevo.html" class="btn btn-outline btn-sm">Nuevo propietario</a>
+                  <a href="../mascotas/mascotas-nuevo.html" class="btn btn-outline btn-sm">Nueva mascota</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <section aria-labelledby="buscar-dueno-title">
             <form action="citas-agendar.html" method="get" class="card" role="search">
               <div class="card-header">

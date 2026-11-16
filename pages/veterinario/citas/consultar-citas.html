@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="VetCare - Agenda del día del médico veterinario en la Clínica Veterinaria Huellitas.">
-  <title>Agenda del día | VetCare - Clínica Huellitas</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <meta name="description" content="VetCare - Consultar citas médicas asignadas en la Clínica Veterinaria Huellitas.">
+  <title>Consultar citas | VetCare - Clínica Huellitas</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -15,7 +15,7 @@
     <header class="app-navbar">
       <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
       <div class="navbar-top">
-        <a href="agenda-dia.html" class="navbar-brand">
+        <a href="consultar-citas.html" class="navbar-brand">
           <span class="brand-mark" aria-hidden="true">VC</span>
           <span>VetCare</span>
           <span class="navbar-role">Veterinario</span>
@@ -28,8 +28,8 @@
       <nav class="navbar-menu" aria-label="Navegación principal">
         <span class="nav-section-title">Área clínica</span>
         <ul class="nav-list">
-          <li><a href="agenda-dia.html" class="nav-link active" aria-current="page">Agenda del día</a></li>
-          <li><a href="historial-buscar.html" class="nav-link">Historial clínico</a></li>
+          <li><a href="consultar-citas.html" class="nav-link active" aria-current="page">Consultar citas</a></li>
+          <li><a href="../historial/historial-buscar.html" class="nav-link">Historial clínico</a></li>
         </ul>
       </nav>
       <div class="navbar-user">
@@ -37,7 +37,7 @@
           <span class="navbar-user-name">Dr. Esteban Morales</span>
           <span class="navbar-user-role">Médico veterinario</span>
         </div>
-        <a href="../index.html" class="navbar-logout">Cerrar sesión</a>
+        <a href="../../../index.html" class="navbar-logout">Cerrar sesión</a>
       </div>
     </header>
 
@@ -46,15 +46,35 @@
         <div class="d-flex flex-column gap-1">
           <nav aria-label="Migas de pan">
             <ol class="breadcrumbs">
-              <li class="breadcrumb-item" aria-current="page">Agenda del día</li>
+              <li class="breadcrumb-item" aria-current="page">Consultar citas</li>
             </ol>
           </nav>
-          <h1 class="page-title">Agenda del día</h1>
-          <p class="page-subtitle">Citas programadas asignadas para la jornada de hoy.</p>
+          <h1 class="page-title">Consultar citas</h1>
+          <p class="page-subtitle">Consulte las citas programadas por fecha.</p>
         </div>
       </header>
 
       <div class="page-content grid-12">
+        <section class="col-12" aria-labelledby="filtro-citas-title">
+          <form action="consultar-citas.html" method="get" class="card" role="search">
+            <div class="card-header">
+              <h2 id="filtro-citas-title" class="card-title">Filtrar citas por fecha</h2>
+            </div>
+            <div class="card-body grid-12">
+              <div class="form-group col-md-8 col-lg-9 mb-0">
+                <label for="fecha_citas" class="form-label">Fecha</label>
+                <input type="date" id="fecha_citas" name="fecha" class="form-control" value="2026-11-15">
+              </div>
+              <div class="col-md-4 col-lg-3 d-flex items-end">
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-primary">Buscar</button>
+                  <a href="consultar-citas.html" class="btn btn-outline">Limpiar</a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+
         <section class="col-12" aria-labelledby="tabla-agenda-title">
           <div class="card">
             <div class="card-header">

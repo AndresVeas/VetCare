@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="VetCare - Registrar un nuevo servicio médico en la Clínica Veterinaria Huellitas.">
-  <title>Nuevo servicio | VetCare - Clínica Huellitas</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <meta name="description" content="VetCare - Editar servicio médico en la Clínica Veterinaria Huellitas.">
+  <title>Editar servicio | VetCare - Clínica Huellitas</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -15,7 +15,7 @@
     <header class="app-navbar">
       <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
       <div class="navbar-top">
-        <a href="admin-dashboard.html" class="navbar-brand">
+        <a href="../admin-dashboard.html" class="navbar-brand">
           <span class="brand-mark" aria-hidden="true">VC</span>
           <span>VetCare</span>
           <span class="navbar-role">Admin</span>
@@ -28,8 +28,8 @@
       <nav class="navbar-menu" aria-label="Navegación principal">
         <span class="nav-section-title">Administración</span>
         <ul class="nav-list">
-          <li><a href="admin-dashboard.html" class="nav-link">Panel principal</a></li>
-          <li><a href="veterinarios-listado.html" class="nav-link">Veterinarios</a></li>
+          <li><a href="../admin-dashboard.html" class="nav-link">Panel principal</a></li>
+          <li><a href="../veterinarios/veterinarios-listado.html" class="nav-link">Veterinarios</a></li>
           <li><a href="servicios-listado.html" class="nav-link active" aria-current="page">Servicios</a></li>
         </ul>
       </nav>
@@ -38,7 +38,7 @@
           <span class="navbar-user-name">Ing. Patricia Viteri</span>
           <span class="navbar-user-role">Administradora</span>
         </div>
-        <a href="../index.html" class="navbar-logout">Cerrar sesión</a>
+        <a href="../../../index.html" class="navbar-logout">Cerrar sesión</a>
       </div>
     </header>
 
@@ -47,13 +47,13 @@
         <div class="d-flex flex-column gap-1">
           <nav aria-label="Migas de pan">
             <ol class="breadcrumbs">
-              <li class="breadcrumb-item"><a href="admin-dashboard.html">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="../admin-dashboard.html">Inicio</a></li>
               <li class="breadcrumb-item"><a href="servicios-listado.html">Servicios</a></li>
-              <li class="breadcrumb-item" aria-current="page">Nuevo servicio</li>
+              <li class="breadcrumb-item" aria-current="page">Editar servicio</li>
             </ol>
           </nav>
-          <h1 class="page-title">Nuevo servicio</h1>
-          <p class="page-subtitle">Registre una nueva prestación médica y su tarifa.</p>
+          <h1 class="page-title">Editar servicio</h1>
+          <p class="page-subtitle">Actualice los datos de Consulta general (SRV-001).</p>
         </div>
         <div class="page-actions">
           <a href="servicios-listado.html" class="btn btn-outline">Volver al listado</a>
@@ -61,31 +61,31 @@
       </header>
 
       <div class="page-content grid-12">
-        <section class="col-lg-8" aria-labelledby="form-nuevo-servicio-title">
+        <section class="col-12 form-centered" aria-labelledby="form-editar-servicio-title">
           <form action="servicios-listado.html" method="get" class="card">
             <div class="card-header">
-              <h2 id="form-nuevo-servicio-title" class="card-title">Datos del servicio</h2>
+              <h2 id="form-editar-servicio-title" class="card-title">Datos del servicio</h2>
+              <span class="badge badge-atendida">Activo</span>
             </div>
             <div class="card-body">
               <fieldset class="form-fieldset">
                 <legend class="form-legend">Información general y tarifa</legend>
                 <div class="grid-12">
                   <div class="form-group col-md-4">
-                    <label for="codigo" class="form-label required">Código</label>
-                    <input type="text" id="codigo" name="codigo" class="form-control" pattern="SRV-[0-9]{3}" placeholder="Ej.: SRV-005" required>
-                    <span class="form-hint">Formato: SRV-000.</span>
+                    <label for="codigo" class="form-label">Código</label>
+                    <input type="text" id="codigo" name="codigo" class="form-control" value="SRV-001" readonly>
+                    <span class="form-hint">Campo de solo lectura.</span>
                   </div>
 
                   <div class="form-group col-md-8">
                     <label for="nombre" class="form-label required">Nombre del servicio</label>
-                    <input type="text" id="nombre" name="nombre" class="form-control" minlength="3" maxlength="100" placeholder="Ej.: Ecografía abdominal" required>
+                    <input type="text" id="nombre" name="nombre" class="form-control" value="Consulta general" minlength="3" maxlength="100" required>
                   </div>
 
                   <div class="form-group col-md-6">
                     <label for="categoria" class="form-label required">Categoría</label>
                     <select id="categoria" name="categoria" class="form-select" required>
-                      <option value="" disabled selected>Seleccione...</option>
-                      <option value="Consulta">Consulta</option>
+                      <option value="Consulta" selected>Consulta</option>
                       <option value="Vacunación">Vacunación</option>
                       <option value="Medicina preventiva">Medicina preventiva</option>
                       <option value="Odontología">Odontología</option>
@@ -96,8 +96,7 @@
                   <div class="form-group col-md-6">
                     <label for="duracion" class="form-label required">Duración estimada</label>
                     <select id="duracion" name="duracion" class="form-select" required>
-                      <option value="" disabled selected>Seleccione...</option>
-                      <option value="30">30 minutos</option>
+                      <option value="30" selected>30 minutos</option>
                       <option value="60">60 minutos</option>
                       <option value="90">90 minutos</option>
                     </select>
@@ -105,58 +104,31 @@
 
                   <div class="form-group col-md-6">
                     <label for="precio" class="form-label required">Tarifa (USD)</label>
-                    <input type="number" id="precio" name="precio" class="form-control" min="1.00" max="500.00" step="0.01" placeholder="Ej.: 35.00" required>
-                    <span class="form-hint">Entre $1.00 y $500.00.</span>
+                    <input type="number" id="precio" name="precio" class="form-control" value="15.00" min="1.00" max="500.00" step="0.01" required>
                   </div>
 
                   <div class="form-group col-md-6">
                     <label for="estado" class="form-label required">Estado</label>
                     <select id="estado" name="estado" class="form-select" required>
-                      <option value="" disabled selected>Seleccione...</option>
-                      <option value="Activo">Activo</option>
+                      <option value="Activo" selected>Activo</option>
                       <option value="Inactivo">Inactivo</option>
                     </select>
                   </div>
 
                   <div class="form-group col-12 mb-0">
                     <label for="descripcion" class="form-label required">Descripción</label>
-                    <textarea id="descripcion" name="descripcion" class="form-control" minlength="5" maxlength="250" placeholder="Describa el alcance del servicio e indicaciones..." required></textarea>
-                    <span class="form-hint">Entre 5 y 250 caracteres.</span>
+                    <textarea id="descripcion" name="descripcion" class="form-control" minlength="5" maxlength="250" required>Evaluación médica veterinaria de constantes fisiológicas y diagnóstico general.</textarea>
                   </div>
                 </div>
               </fieldset>
 
               <div class="btn-group mt-2">
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
                 <a href="servicios-listado.html" class="btn btn-outline">Cancelar</a>
               </div>
             </div>
           </form>
         </section>
-
-        <aside class="col-lg-4" aria-labelledby="indicaciones-servicio-title">
-          <div class="card">
-            <div class="card-header">
-              <h2 id="indicaciones-servicio-title" class="card-title">Indicaciones</h2>
-            </div>
-            <div class="card-body">
-              <ul class="data-list">
-                <li class="data-item">
-                  <span class="data-label">Código</span>
-                  <span class="data-value text-left">Debe seguir el formato SRV-000.</span>
-                </li>
-                <li class="data-item">
-                  <span class="data-label">Duración</span>
-                  <span class="data-value text-left">En bloques de 30 minutos para agenda médica.</span>
-                </li>
-                <li class="data-item">
-                  <span class="data-label">Tarifa</span>
-                  <span class="data-value text-left">Expresada en dólares estadounidenses (USD).</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </aside>
       </div>
 
       <footer class="page-footer">
